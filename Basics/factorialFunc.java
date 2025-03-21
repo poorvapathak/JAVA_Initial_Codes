@@ -42,15 +42,16 @@ public class factorialFunc {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number: ");
-        int a = sc.nextInt();
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("Enter the number: ");
+            int a = sc.nextInt();
 
-        try {
-            int result = calculateFact(a);
-            System.out.println("Factorial of the number is: " + result);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            try {
+                int result = calculateFact(a);
+                System.out.println("Factorial of the number is: " + result);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }

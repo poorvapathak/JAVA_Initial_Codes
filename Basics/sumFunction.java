@@ -6,13 +6,16 @@ public class sumFunction {
     }
     public static void main(String[] args) {
         System.out.print("Enter first number: ");
-        Scanner sc=new Scanner(System.in);
-        int a = sc.nextInt();
-        System.out.print("Enter second number: ");
-        Scanner sc2 =new Scanner(System.in);
-        int b = sc2.nextInt();
+        try (Scanner sc = new Scanner(System.in)) {
+            int a = sc.nextInt();
+            System.out.print("Enter second number: ");
+            int b;
+            try (Scanner sc2 = new Scanner(System.in)) {
+                b = sc2.nextInt();
+            }
 
-        int sum=calculateSum(a, b);
-        System.out.println("Sum of the two numbers is: " + sum);
+            int sum=calculateSum(a, b);
+            System.out.println("Sum of the two numbers is: " + sum);
+        }
     }
 }
